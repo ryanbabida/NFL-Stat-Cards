@@ -60,7 +60,6 @@ class Ui_Card(object):
         self.num.setText(_translate("Card", num, None))
         self.team.setText(_translate("Card", team, None))
         self.photo.setScaledContents(True)
-        #myScaledPixmap = myPixmap.scaled(self.label.size(), QtGui.KeepAspectRatio)
         self.photo.setPixmap(QtGui.QPixmap(photo))
 
 
