@@ -85,11 +85,10 @@ class Ui_Form(object):
         pos = getPos(log)
         team = getTeam(log)
         stats = getStats(log, pos[1])
+        categories = getCategories(pos[1])
 
 
-        self.current_player = [name, self.results[name], log, pos[0], pos[1], team, img, stats]
-        #print(self.current_player)
-        #print("here main")
+        self.current_player = (name, pos[0], pos[1], team, img, stats, categories)
         
         for x in stats:
             print(x)
@@ -106,9 +105,7 @@ class Ui_Form(object):
         temp = QtGui.QWidget()
         self.cards.append(temp)
         ui = Ui_Card()
-        ui.setupUi(self.cards[len(self.cards) - 1], self.current_player[0], 
-            self.current_player[3] + "-" + self.current_player[4], 
-            self.current_player[5], self.current_player[6])
+        ui.setupUi(self.cards[len(self.cards) - 1], self.current_player)
         self.cards[len(self.cards) - 1].show()
         
 

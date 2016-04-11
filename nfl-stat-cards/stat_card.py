@@ -15,7 +15,7 @@ except AttributeError:
         return QtGui.QApplication.translate(context, text, disambig)
 
 class Ui_Card(object):
-    def setupUi(self, Card, name, num, team, photo):
+    def setupUi(self, Card, current_player): # current_player
         Card.setObjectName(_fromUtf8("Card"))
         Card.resize(660, 325)
         self.tableView = QtGui.QTableView(Card)
@@ -51,15 +51,15 @@ class Ui_Card(object):
         self.photo.setObjectName(_fromUtf8("photo"))
 
 
-        self.retranslateUi(Card, name, num, team, photo)
+        self.retranslateUi(Card, current_player) # current_player
         QtCore.QMetaObject.connectSlotsByName(Card)
 
-    def retranslateUi(self, Card, name, num, team, photo):
-        Card.setWindowTitle(_translate("Card", name, None))
-        self.name.setText(_translate("Card", name, None))
-        self.num.setText(_translate("Card", num, None))
-        self.team.setText(_translate("Card", team, None))
-        self.photo.setScaledContents(True)
-        self.photo.setPixmap(QtGui.QPixmap(photo))
+    def retranslateUi(self, Card, current_player):
+        Card.setWindowTitle(_translate("Card", current_player[0], None)) #current_player[0]
+        self.name.setText(_translate("Card", current_player[0], None))   #current_player[0]
+        self.num.setText(_translate("Card", current_player[1] + '-' + current_player[2], None))     #current_player[1]
+        self.team.setText(_translate("Card", current_player[3], None))   #current_player[2]
+        self.photo.setScaledContents(True)                  #current_player[3]
+        self.photo.setPixmap(QtGui.QPixmap(current_player[4]))
 
 

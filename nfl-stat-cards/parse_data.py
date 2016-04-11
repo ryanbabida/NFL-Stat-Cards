@@ -67,5 +67,14 @@ def getPosInt(pos):
         return 19
     elif pos == 'RB' or pos == 'TE' or pos == 'WR':
         return 13
+
+def getCategories(pos):
+    if pos == 'QB':
+        return ['G',    'GS', 'Comp', 'PAtt', 'PPct',   'PYds',
+                   'PAvg', 'PTD', 'Int',    'Sck', 'SckY', 'Rate', 
+                   'RAtt', 'RYds', 'RAvg', 'RTD', 'FUM', 'Lost']
+
+
+
     
 
