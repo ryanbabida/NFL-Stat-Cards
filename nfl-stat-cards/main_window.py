@@ -75,6 +75,7 @@ class Ui_Form(object):
 
 
     def getClicked(self):
+        # creates the player object
         name = self.result_list.currentItem().text()
         log = getLog(self.results[name])
         img_url = getImg(log)
@@ -83,9 +84,15 @@ class Ui_Form(object):
         img.loadFromData(data)
         pos = getPos(log)
         team = getTeam(log)
-        self.current_player = [name, self.results[name], log, pos[0], pos[1], 
-                            team, img]
-        print(self.current_player)
+        stats = getStats(log, pos[1])
+
+
+        self.current_player = [name, self.results[name], log, pos[0], pos[1], team, img, stats]
+        #print(self.current_player)
+        #print("here main")
+        
+        for x in stats:
+            print(x)
 
         '''
         TODO: Use current player to get    

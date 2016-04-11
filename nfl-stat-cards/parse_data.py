@@ -42,3 +42,30 @@ def getImg(url):
         if link.get('src').find('200x200') != -1:
            return link.get('src')
 
+def getStats(url, pos):
+    stats = list()
+    per_game = list()
+    i = 0
+    game_count = 0
+    pos_int = getPosInt(pos)
+
+    player_req = requests.get(url)
+    player_soup = BeautifulSoup(player_req.content, 'lxml')
+    for link in player_soup.findAll('td'):
+        if link.text.isdigit() or link.text == '--' or link.text.find(',') != -1 or link.text.find('.') != -1 or link.text.find('-') == 0 or link.text == 'TOTAL':
+            per_game.append(link.text)
+            i = i + 1
+        if i == pos_int:
+            stats.append(per_game[:])
+            per_game.clear()
+            i = 0
+
+    return stats
+
+def getPosInt(pos):
+    if pos == 'QB':
+        return 19
+    elif pos == 'RB' or pos == 'TE' or pos == 'WR':
+        return 13
+    
+
