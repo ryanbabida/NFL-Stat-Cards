@@ -12,7 +12,7 @@ class Quarterback(Player):
 	def __init__(self, first, last):
 		Player.def__init__(first, last)
 		self.categories = ['G',	'GS', 'Comp', 'PAtt', 'PPct',	'PYds',
-				   'PAvg', 'PTD', 'Int',	'Sck', 'SckY', 'Rate', 
+				   'PAvg', 'PTD', 'Int', 'Sck', 'SckY', 'Rate', 
 				   'RAtt', 'RYds', 'RAvg', 'RTD', 'FUM', 'Lost']
 
 class RunningBack(Player):

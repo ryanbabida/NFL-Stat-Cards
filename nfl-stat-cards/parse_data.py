@@ -70,7 +70,7 @@ def getPosInt(pos):
 
 def getCategories(pos):
     if pos == 'QB':
-        return ['G',    'GS', 'Comp', 'PAtt', 'PPct',   'PYds',
+        return [ '', 'G',    'GS', 'Comp', 'PAtt', 'PPct',   'PYds',
                    'PAvg', 'PTD', 'Int',    'Sck', 'SckY', 'Rate', 
                    'RAtt', 'RYds', 'RAvg', 'RTD', 'FUM', 'Lost']
 

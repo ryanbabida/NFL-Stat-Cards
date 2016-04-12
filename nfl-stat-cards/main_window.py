@@ -76,36 +76,39 @@ class Ui_Form(object):
 
     def getClicked(self):
         # creates the player object
-        name = self.result_list.currentItem().text()
-        log = getLog(self.results[name])
-        img_url = getImg(log)
-        data = urllib.request.urlopen(img_url).read()
-        img = QtGui.QImage()
-        img.loadFromData(data)
-        pos = getPos(log)
-        team = getTeam(log)
-        stats = getStats(log, pos[1])
-        categories = getCategories(pos[1])
 
+        if self.result_list.currentItem() == None: 
+            print("Not valid")
+        else:
+            name = self.result_list.currentItem().text()
+            log = getLog(self.results[name])
+            img_url = getImg(log)
+            data = urllib.request.urlopen(img_url).read()
+            img = QtGui.QImage()
+            img.loadFromData(data)
+            pos = getPos(log)
+            team = getTeam(log)
+            stats = getStats(log, pos[1])
+            categories = getCategories(pos[1])
 
-        self.current_player = (name, pos[0], pos[1], team, img, stats, categories)
-        
-        for x in stats:
-            print(x)
+            self.current_player = (name, pos[0], pos[1], team, img, stats, categories)
+            
+            #for x in stats:
+            #    print(x)
 
-        '''
-        TODO: Use current player to get    
-         - stats for each game
-         - stats for total
-         - dropdown for each cat
-         - graph based on cat
-         Don't really need player.py...
-        '''
+            '''
+            TODO: Use current player to get    
+             - stats for each game
+             - stats for total
+             - dropdown for each cat
+             - graph based on cat
+             Don't really need player.py...
+            '''
 
-        temp = QtGui.QWidget()
-        self.cards.append(temp)
-        ui = Ui_Card()
-        ui.setupUi(self.cards[len(self.cards) - 1], self.current_player)
-        self.cards[len(self.cards) - 1].show()
+            temp = QtGui.QWidget()
+            self.cards.append(temp)
+            ui = Ui_Card()
+            ui.setupUi(self.cards[len(self.cards) - 1], self.current_player)
+            self.cards[len(self.cards) - 1].show()
         
 
