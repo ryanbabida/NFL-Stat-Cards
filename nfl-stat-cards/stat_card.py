@@ -34,6 +34,7 @@ class Ui_Card(object):
         for i in range(1, len(current_player[5]) + 1):
             for j in range(0, len(current_player[5][0])):
                 self.stat_table.setItem(i, j, QtGui.QTableWidgetItem(current_player[5][i - 1][j]))
+        self.stat_table.setEditTriggers(QtGui.QAbstractItemView.NoEditTriggers)
 
         self.name = QtGui.QLabel(Card)
         self.name.setGeometry(QtCore.QRect(150, 20, 200, 13))
