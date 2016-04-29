@@ -35,12 +35,14 @@ def getTeam(url):
     for link in player_soup.findAll('a', attrs={'href': re.compile("/teams")}):
         return link.text
 
+
 def getImg(url):
     player_req = requests.get(url)
     player_soup = BeautifulSoup(player_req.content, 'lxml')
     for link in player_soup.findAll('img'):
         if link.get('src').find('200x200') != -1:
            return link.get('src')
+
 
 def getStats(url, pos):
     stats = list()
@@ -62,11 +64,13 @@ def getStats(url, pos):
 
     return stats
 
+
 def getPosInt(pos):
     if pos == 'QB':
         return 19
     elif pos == 'RB' or pos == 'TE' or pos == 'WR':
         return 13
+
 
 def getCategories(pos):
     if pos == 'QB':
