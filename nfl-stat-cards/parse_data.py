@@ -93,6 +93,8 @@ def getCategories(pos):
         return ['Week', 'G', 'GS', 'RAtt', 'RYds',   'RAvg',
                     'RLng', 'RTD', 'Rec', 'RecYds', 'RecAvg', 'RecLng', 
                     'RecTD','FUM', 'Lost']
+    elif pos == 'CB':
+        return ['Week']
 
 
 

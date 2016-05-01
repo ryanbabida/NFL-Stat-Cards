@@ -1,7 +1,6 @@
 import sys
 from main_window import *
 
-
 def main(args):
     global app
     app = App(args)

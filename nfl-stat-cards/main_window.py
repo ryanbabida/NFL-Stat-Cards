@@ -13,24 +13,24 @@ class MainWindow(QMainWindow):
 
     def __init__(self, *args):
         QMainWindow.__init__(self, *args)
-        self.cw = QWidget(self)
-        self.setCentralWidget(self.cw)
-        self.cw.resize(455, 288)
-        self.gridLayout = QGridLayout(self.cw)
+        self.main_window = QWidget(self)
+        self.setCentralWidget(self.main_window)
+        self.main_window.resize(455, 288)
+        self.gridLayout = QGridLayout(self.main_window)
 
-        self.search_box = QLineEdit(self.cw)
+        self.search_box = QLineEdit(self.main_window)
         self.gridLayout.addWidget(self.search_box, 0, 0, 1, 1)
 
-        self.search_btn = QPushButton(self.cw)
+        self.search_btn = QPushButton(self.main_window)
         self.search_btn.setText("Search")
         self.gridLayout.addWidget(self.search_btn, 0, 1, 1, 1)
         self.search_btn.clicked.connect(self.searchClicked)
     
-        self.result_list = QListWidget(self.cw)
+        self.result_list = QListWidget(self.main_window)
         self.result_list.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
         self.gridLayout.addWidget(self.result_list, 1, 0, 1, 1)
 
-        self.get_btn = QPushButton(self.cw)
+        self.get_btn = QPushButton(self.main_window)
         self.get_btn.setText("Create Card")
         self.gridLayout.addWidget(self.get_btn, 1, 1, 1, 1)
         self.get_btn.clicked.connect(self.getClicked)

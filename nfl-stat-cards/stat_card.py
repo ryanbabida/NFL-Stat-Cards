@@ -21,8 +21,6 @@ class StatCard(QWidget):
         self.stat_table.setRowCount(len(current_player[5]) + 1)
         self.stat_table.setColumnCount(len(current_player[6]))
 
-        # print(current_player[5])
-
         for i in range(0, len(current_player[6])):
             self.stat_table.setItem(0, i, QTableWidgetItem(current_player[6][i]))
         for i in range(1, len(current_player[5]) + 1):
@@ -31,11 +29,11 @@ class StatCard(QWidget):
         self.stat_table.setEditTriggers(QAbstractItemView.NoEditTriggers)
 
         self.name = QLabel(self.card)
-        self.name.setGeometry(QRect(150, 20, 200, 13))
+        self.name.setGeometry(QRect(10, 20, 200, 13))
         self.name.setText(current_player[0])
 
         self.num = QLabel(self.card)
-        self.num.setGeometry(QRect(300, 20, 56, 13))
+        self.num.setGeometry(QRect(250, 20, 56, 13))
         self.num.setText(current_player[1] + '-' + current_player[2])
        
         self.team = QLabel(self.card)
@@ -43,8 +41,8 @@ class StatCard(QWidget):
         self.team.setText(current_player[3])
 
         self.photo = QLabel(self.card)
-        self.photo.setGeometry(QRect(10, 50, 130, 150))
-        self.photo.setScaledContents(True)                  #current_player[3]
+        self.photo.setGeometry(QRect(10, 50, 150, 150))
+        self.photo.setScaledContents(True)                  
         self.photo.setPixmap(QPixmap(current_player[4]))
 
         self.categories = QComboBox(self.card)
@@ -52,8 +50,6 @@ class StatCard(QWidget):
         self.categories.addItem("")
         for cat in current_player[6]:
             self.categories.addItem(cat)
-        #self.categories.highlighted['QString'].connect(self.catChanged)
-        #self.categories.currentIndexChanged['QString'].connect(self.selectionchange)
 
         self.chart_button = QPushButton(self.card)
         self.chart_button.setGeometry(610, 12, 30, 20)
