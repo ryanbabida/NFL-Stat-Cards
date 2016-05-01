@@ -54,7 +54,11 @@ def getStats(url, pos):
     player_req = requests.get(url)
     player_soup = BeautifulSoup(player_req.content, 'lxml')
     for link in player_soup.findAll('td'):
-        if link.text.isdigit() or link.text == '--' or link.text.find(',') != -1 or link.text.find('.') != -1 or link.text.find('-') == 0 or link.text == 'TOTAL':
+        if (link.text.isdigit() or link.text == '--' or link.text.find(',') != -1  or link.text.find('.') != -1 or link.text.find('-') == 0 or link.text == 'TOTAL'):
+            per_game.append(link.text)
+            i = i + 1
+        s = link.text
+        if link.text.find('T') == 2 or link.text.find('T') == 1:
             per_game.append(link.text)
             i = i + 1
         if i == pos_int:
@@ -69,14 +73,26 @@ def getPosInt(pos):
     if pos == 'QB':
         return 19
     elif pos == 'RB' or pos == 'TE' or pos == 'WR':
-        return 13
+        return 15
 
 
 def getCategories(pos):
     if pos == 'QB':
-        return [ 'Week', 'G',    'GS', 'Comp', 'PAtt', 'PPct',   'PYds',
+        return [ 'Week', 'G', 'GS', 'Comp', 'PAtt', 'PPct',   'PYds',
                    'PAvg', 'PTD', 'Int',    'Sck', 'SckY', 'Rate', 
                    'RAtt', 'RYds', 'RAvg', 'RTD', 'FUM', 'Lost']
+    elif pos == 'TE':
+        return ['Week', 'G', 'GS', 'Rec', 'RecYds', 'RecAvg', 'RecLng', 
+                    'RecTD', 'RAtt', 'RYds', 'RAvg', 
+                    'RLng', 'RTD', 'FUM', 'Lost']
+    elif pos == 'WR':
+        return ['Week', 'G', 'GS', 'Rec', 'RecYds', 'RecAvg', 'RecLng', 
+                    'RecTD', 'RAtt', 'RYds', 'RAvg', 
+                    'RLng', 'RTD', 'FUM', 'Lost']
+    elif pos == 'RB':
+        return ['Week', 'G', 'GS', 'RAtt', 'RYds',   'RAvg',
+                    'RLng', 'RTD', 'Rec', 'RecYds', 'RecAvg', 'RecLng', 
+                    'RecTD','FUM', 'Lost']
 
 
 

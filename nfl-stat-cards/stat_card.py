@@ -21,11 +21,13 @@ class StatCard(QWidget):
         self.stat_table.setRowCount(len(current_player[5]) + 1)
         self.stat_table.setColumnCount(len(current_player[6]))
 
+        # print(current_player[5])
+
         for i in range(0, len(current_player[6])):
             self.stat_table.setItem(0, i, QTableWidgetItem(current_player[6][i]))
         for i in range(1, len(current_player[5]) + 1):
             for j in range(0, len(current_player[5][0])):
-                self.stat_table.setItem(i, j, QTableWidgetItem(current_player[5][i - 1][j]))
+              self.stat_table.setItem(i, j, QTableWidgetItem(current_player[5][i - 1][j]))
         self.stat_table.setEditTriggers(QAbstractItemView.NoEditTriggers)
 
         self.name = QLabel(self.card)
