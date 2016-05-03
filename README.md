@@ -9,3 +9,5 @@ To currently run: be in directory with NFL-Stat_Cards
 
 Command: 
 python3 NFL-Stat-Cards/nfl-stat-cards/run.py
+
+![alt tag](https://raw.githubusercontent.com/ryanbabida/NFL-Stat_Cards/master/desktop_img.png)
