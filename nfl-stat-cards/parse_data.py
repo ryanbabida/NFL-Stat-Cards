@@ -54,7 +54,9 @@ def getStats(url, pos):
     player_req = requests.get(url)
     player_soup = BeautifulSoup(player_req.content, 'lxml')
     for link in player_soup.findAll('td'):
-        if (link.text.isdigit() or link.text == '--' or link.text.find(',') != -1  or link.text.find('.') != -1 or link.text.find('-') == 0 or link.text == 'TOTAL'):
+        if (link.text.isdigit() or link.text == '--' or 
+                link.text.find(',') != -1  or link.text.find('.') != -1 
+                or link.text.find('-') == 0 or link.text == 'TOTAL'):
             per_game.append(link.text)
             i = i + 1
         s = link.text

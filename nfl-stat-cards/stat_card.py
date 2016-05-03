@@ -48,8 +48,8 @@ class StatCard(QWidget):
         self.categories = QComboBox(self.card)
         self.categories.setGeometry(QRect(500, 10, 104, 26))
         self.categories.addItem("")
-        for cat in current_player[6]:
-            self.categories.addItem(cat)
+        for i in range(3, len(current_player[6])):
+            self.categories.addItem(current_player[6][i])
 
         self.chart_button = QPushButton(self.card)
         self.chart_button.setGeometry(610, 12, 30, 20)

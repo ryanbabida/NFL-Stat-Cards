@@ -35,6 +35,11 @@ class MainWindow(QMainWindow):
         self.gridLayout.addWidget(self.get_btn, 1, 1, 1, 1)
         self.get_btn.clicked.connect(self.getClicked)
 
+        self.save_btn = QPushButton(self.main_window)
+        self.save_btn.setText("Save Player")
+        self.gridLayout.addWidget(self.save_btn, 2, 0, 1, 1)
+        self.save_btn.clicked.connect(self.saveClicked)
+
     def searchClicked(self):
         name = self.search_box.text()
         self.results.clear()
@@ -62,6 +67,9 @@ class MainWindow(QMainWindow):
             ui = StatCard(current_player)
             self.cards.append(ui)
             ui.show()
+
+    def saveClicked(self):
+        print('saveClicked')
             
 class App(QApplication):
     def __init__(self, *args):
