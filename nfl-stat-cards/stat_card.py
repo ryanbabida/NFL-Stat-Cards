@@ -21,6 +21,8 @@ class StatCard(QWidget):
         self.card.setWindowTitle(current_player[0])
 
         self.stat_table = QTableWidget(self.card)
+        self.stat_table.verticalHeader().setVisible(False)
+        self.stat_table.horizontalHeader().setVisible(False)
         self.stat_table.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
         self.stat_table.setRowCount(len(current_player[5]) + 1)
         self.stat_table.setColumnCount(len(current_player[6]))
@@ -67,10 +69,10 @@ class StatCard(QWidget):
         grid1.addWidget(self.categories, 0, 3)
         grid1.addWidget(self.chart_button, 0, 4)
         main_layout.addLayout(grid1)
+
         grid2.addWidget(self.photo, 0, 0)
-        
-        grid2.addWidget(self.stat_table, 0, 1, 1, 1)
-        grid2.addWidget(self.canvas, 1, 0, 1, 0)
+        grid2.addWidget(self.stat_table, 0, 1, 2, 1)
+        grid2.addWidget(self.canvas, 3, 0, 1, 2)
         main_layout.addLayout(grid2)
         
         self.setLayout(main_layout)
